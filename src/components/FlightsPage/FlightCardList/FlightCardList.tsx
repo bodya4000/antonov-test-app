@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { FC } from 'react';
-import useFlights from '../../hooks/useFlights';
 import FlightCard from './FlightCard';
+import useFlights from '../../../hooks/useFlights'
 
 const FlightListContainer = styled.div`
 	max-width: 1300px;
