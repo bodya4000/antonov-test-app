@@ -1,5 +1,6 @@
 import { Box, CardContent, Card as MuiCard, styled, Typography } from '@mui/material';
-import { IFlight } from '../../types/IFlight';
+import { IFlight } from '../../../types/IFlight';
+import DateService from '../../../utils/date';
 
 const Card = styled(MuiCard)`
 	width: 350px;
@@ -45,10 +46,10 @@ const FlightCard = (flight: IFlight) => {
 					<b>From:</b> {flight.from} → <b>To:</b> {flight.to}
 				</FlightInfo>
 				<FlightInfo>
-					<b>Departure:</b> {new Date(flight.departureTime).toLocaleString()}
+					<b>Departure:</b> {DateService.toUIFormat(new Date(flight.departureTime))}
 				</FlightInfo>
 				<FlightInfo>
-					<b>Arrival:</b> {new Date(flight.arrivalTime).toLocaleString()}
+					<b>Arrival:</b> {DateService.toUIFormat(new Date(flight.arrivalTime))}
 				</FlightInfo>
 				<FlightInfo>
 					<b>Terminal:</b> {flight.terminal}, <b>Gate:</b> {flight.gate}

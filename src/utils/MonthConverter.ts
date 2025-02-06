@@ -1,4 +1,4 @@
-import { Month } from '@/constants/Month';
+import { Month } from '../constants/Month';
 
 export default class MonthConverter {
 	static fromNumberToMonth(month: number): Month {
