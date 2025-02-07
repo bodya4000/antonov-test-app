@@ -1,8 +1,10 @@
 import { Box, CardContent, Card as MuiCard, styled, Typography } from '@mui/material';
+import { memo } from 'react';
 import { IFlight } from '../../../types/IFlight';
 import DateService from '../../../utils/date';
 
 const Card = styled(MuiCard)`
+	flex: 1 1 23%;
 	width: 350px;
 	border-radius: 16px;
 	overflow: hidden;
@@ -37,33 +39,36 @@ const Badge = styled(Box)`
 	font-size: 12px;
 `;
 
-const FlightCard = (flight: IFlight) => {
-	return (
-		<Card key={flight.id}>
-			<CardContent>
-				<FlightTitle>{flight.airline}</FlightTitle>
-				<FlightInfo>
-					<b>From:</b> {flight.from} → <b>To:</b> {flight.to}
-				</FlightInfo>
-				<FlightInfo>
-					<b>Departure:</b> {DateService.toUIFormat(new Date(flight.departureTime))}
-				</FlightInfo>
-				<FlightInfo>
-					<b>Arrival:</b> {DateService.toUIFormat(new Date(flight.arrivalTime))}
-				</FlightInfo>
-				<FlightInfo>
-					<b>Terminal:</b> {flight.terminal}, <b>Gate:</b> {flight.gate}
-				</FlightInfo>
-				<FlightInfo>
-					<b>Price:</b> ${flight.price}
-				</FlightInfo>
-				<FlightInfo>
-					<b>Tickets:</b> {flight.tickets.remaining} / {flight.tickets.total}
-				</FlightInfo>
-				<Badge>Flight ID: {flight.id}</Badge>
-			</CardContent>
-		</Card>
-	);
-};
+const FlightCard = memo(
+	(flight: IFlight) => {
+		return (
+			<Card key={flight.id}>
+				<CardContent>
+					<FlightTitle>{flight.airline}</FlightTitle>
+					<FlightInfo>
+						<b>From:</b> {flight.from} → <b>To:</b> {flight.to}
+					</FlightInfo>
+					<FlightInfo>
+						<b>Departure:</b> {DateService.toUIFormat(new Date(flight.departureTime))}
+					</FlightInfo>
+					<FlightInfo>
+						<b>Arrival:</b> {DateService.toUIFormat(new Date(flight.arrivalTime))}
+					</FlightInfo>
+					<FlightInfo>
+						<b>Terminal:</b> {flight.terminal}, <b>Gate:</b> {flight.gate}
+					</FlightInfo>
+					<FlightInfo>
+						<b>Price:</b> ${flight.price}
+					</FlightInfo>
+					<FlightInfo>
+						<b>Tickets:</b> {flight.tickets.remaining} / {flight.tickets.total}
+					</FlightInfo>
+					<Badge>Flight ID: {flight.id}</Badge>
+				</CardContent>
+			</Card>
+		);
+	},
+	(prevProps, newProps) => prevProps.id == newProps.id
+);
 
 export default FlightCard;

@@ -8,8 +8,8 @@ interface OptionsState {
 	valueMin: number;
 	valueMax: number;
 
-	dateStart: string;
-	dateEnd: string | undefined;
+	departure: string | undefined;
+	arrival: string | undefined;
 }
 
 const initialState: OptionsState = {
@@ -19,8 +19,8 @@ const initialState: OptionsState = {
 	valueMin: 0,
 	valueMax: 400,
 
-	dateStart: '',
-	dateEnd: undefined,
+	departure: undefined,
+	arrival: undefined,
 };
 
 export const counterSlice = createSlice({
@@ -38,8 +38,14 @@ export const counterSlice = createSlice({
 			state.priceMin = action.payload[0];
 			state.priceMax = action.payload[1];
 		},
+		setDeparture(state, action: PayloadAction<string>) {
+			state.departure = action.payload;
+		},
+		setArrival(state, action: PayloadAction<string>) {
+			state.arrival = action.payload;
+		},
 	},
 });
 
-export const { setSearchText, setPrice, setPriceRange } = counterSlice.actions;
+export const { setSearchText, setPrice, setPriceRange, setDeparture, setArrival } = counterSlice.actions;
 export default counterSlice.reducer;

@@ -6,11 +6,9 @@ import useFlights from '../../../hooks/useFlights'
 const FlightListContainer = styled.div`
 	max-width: 1300px;
 	margin: 0 auto;
-	padding: 40px;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
-	justify-content: center;
 `;
 
 const FlightList: FC = () => {

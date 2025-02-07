@@ -13,8 +13,11 @@ const InputWrapper = styled.div`
 `;
 
 const StyledInput = styled.input`
+	position: relative;
+	top: 2px;
 	width: 100%;
-	padding: 12px 40px 12px 12px;
+	height: 50px;
+	padding: 15px 40px 20px 12px;
 	border: 2px solid #ccc;
 	border-radius: 8px;
 	font-size: 16px;

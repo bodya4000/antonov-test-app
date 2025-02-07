@@ -2,7 +2,7 @@ import { padZero } from './helpers';
 import MonthConverter from './MonthConverter';
 
 export default class DateService {
-	static toSqliteFormat(date: Date): string {
+	static toDateStringFormat(date: Date): string {
 		if (isNaN(date.getTime())) {
 			throw new Error('Invalid Date');
 		}
@@ -10,7 +10,7 @@ export default class DateService {
 		return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ` + `${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
 	}
 
-	static fromSqliteFormat(date: string): Date {
+	static toDateObjectFormat(date: string): Date {
 		const parsedDate = new Date(date);
 
 		if (isNaN(parsedDate.getTime())) {
@@ -28,6 +28,6 @@ export default class DateService {
 			}
 			date = uiFormatDateObject;
 		}
-		return `${date.getDate()} ${MonthConverter.fromNumberToMonth(date.getMonth() + 1)} ${padZero(date.getHours())}:${padZero(date.getMinutes())}`;
+		return `${date.getFullYear()} ${date.getDate()} ${MonthConverter.fromNumberToMonth(date.getMonth() + 1)} ${padZero(date.getHours())}:${padZero(date.getMinutes())}`;
 	}
 }
