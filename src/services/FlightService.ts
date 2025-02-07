@@ -8,7 +8,7 @@ class FlightService {
 		return axios.get<IFlight[]>(this.BASE_URL);
 	}
 
-	async getFlightById(id: number): Promise<AxiosResponse<IFlight>> {
+	async getFlightById(id: string): Promise<AxiosResponse<IFlight>> {
 		return axios.get<IFlight>(`${this.BASE_URL}/${id}`);
 	}
 }

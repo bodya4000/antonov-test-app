@@ -7,6 +7,7 @@ const PageWrapper = styled.main`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
+	flex-direction:column;
 	justify-content: center;
 `;
 
