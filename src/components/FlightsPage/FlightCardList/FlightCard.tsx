@@ -2,6 +2,7 @@ import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { Box, CardContent, IconButton, Card as MuiCard, styled, Typography } from '@mui/material';
 import { memo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { IFlight } from '../../../types/IFlight';
 import DateService from '../../../utils/date';
 
@@ -50,14 +51,19 @@ const FavoriteButton = styled(IconButton)`
 
 const FlightCard = memo(
 	(flight: IFlight) => {
+		const navigate = useNavigate();
 		const [favorited, setFavorited] = useState(false);
 
 		const toggleFavorite = () => {
 			setFavorited(prev => !prev);
 		};
 
+		const onCardClick = () => {
+			navigate('flight/' + flight.id);
+		};
+
 		return (
-			<Card>
+			<Card onClick={onCardClick}>
 				<CardContent>
 					<FavoriteButton onClick={toggleFavorite} aria-label='add to favorites'>
 						{favorited ? <StarIcon sx={{ color: 'gold' }} /> : <StarBorderIcon sx={{ color: 'gold' }} />}
