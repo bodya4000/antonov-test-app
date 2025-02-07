@@ -1,5 +1,7 @@
-import { Box, CardContent, Card as MuiCard, styled, Typography } from '@mui/material';
-import { memo } from 'react';
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { Box, CardContent, IconButton, Card as MuiCard, styled, Typography } from '@mui/material';
+import { memo, useState } from 'react';
 import { IFlight } from '../../../types/IFlight';
 import DateService from '../../../utils/date';
 
@@ -10,6 +12,7 @@ const Card = styled(MuiCard)`
 	overflow: hidden;
 	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 	transition: transform 0.2s ease-in-out;
+	position: relative;
 	&:hover {
 		transform: translateY(-5px);
 	}
@@ -39,11 +42,27 @@ const Badge = styled(Box)`
 	font-size: 12px;
 `;
 
+const FavoriteButton = styled(IconButton)`
+	position: absolute;
+	top: 8px;
+	right: 8px;
+`;
+
 const FlightCard = memo(
 	(flight: IFlight) => {
+		const [favorited, setFavorited] = useState(false);
+
+		const toggleFavorite = () => {
+			setFavorited(prev => !prev);
+		};
+
 		return (
-			<Card key={flight.id}>
+			<Card>
 				<CardContent>
+					<FavoriteButton onClick={toggleFavorite} aria-label='add to favorites'>
+						{favorited ? <StarIcon sx={{ color: 'gold' }} /> : <StarBorderIcon sx={{ color: 'gold' }} />}
+					</FavoriteButton>
+
 					<FlightTitle>{flight.airline}</FlightTitle>
 					<FlightInfo>
 						<b>From:</b> {flight.from} → <b>To:</b> {flight.to}
@@ -68,7 +87,7 @@ const FlightCard = memo(
 			</Card>
 		);
 	},
-	(prevProps, newProps) => prevProps.id == newProps.id
+	(prevProps, newProps) => prevProps.id === newProps.id
 );
 
 export default FlightCard;
