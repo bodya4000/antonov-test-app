@@ -1,6 +1,6 @@
 import PageWrapper from '../components/common/PageWrapper';
-import DetailFlightView from '../components/FlightDetailPage/DetailFlightView';
-import SeatsGrid from '../components/FlightDetailPage/SeatsGrid';
+import DetailFlightView from '../components/FlightDetailPage/DetailFlightView/DetailFlightView';
+import SeatsGrid from '../components/FlightDetailPage/SeatsGrid/SeatsGrid';
 
 const FlightDetailPage = () => {
 	return (

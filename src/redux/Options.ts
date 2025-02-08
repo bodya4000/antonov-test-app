@@ -23,7 +23,7 @@ const initialState: OptionsState = {
 	arrival: undefined,
 };
 
-export const counterSlice = createSlice({
+export const optionSlice = createSlice({
 	name: 'counter',
 	initialState,
 	reducers: {
@@ -47,5 +47,5 @@ export const counterSlice = createSlice({
 	},
 });
 
-export const { setSearchText, setPrice, setPriceRange, setDeparture, setArrival } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { setSearchText, setPrice, setPriceRange, setDeparture, setArrival } = optionSlice.actions;
+export default optionSlice.reducer;

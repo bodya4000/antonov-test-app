@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
+import cartReducer, { loadState } from './Cart';
 import optionsReducer from './Options';
 
 export const store = configureStore({
 	reducer: {
 		options: optionsReducer,
+		cart: cartReducer,
+		preloadedState: loadState(),
 	},
 });
 
