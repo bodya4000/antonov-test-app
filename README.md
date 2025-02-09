@@ -1,50 +1,29 @@
-# React + TypeScript + Vite
+# Todo App (React Native) 👋  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a task management application built with React
 
-Currently, two official plugins are available:
+## Features  
+- Set up app routing.  
+- Implemented state management with redux.  
+- Display a list of all flights.
+- Add flight to cart, and store it in local storage.
+- Add and remove tasks from the cart. 
+- Search and filter flights;
+- Show grid of seats that can have statuses occupied, free or taken
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Development Stages  
+1. **Project initialization**  15min 16.00 feb 7
+2. **Flight card virtualization** 20min 16.30 feb 7
+3. **Added filter by text**  20min 17.30 feb 7
+4. **Added price filter**  40min 18.30 feb 7
+5. **Date option**  30min 11.00 feb 8
+6. **Added favoritie button**  5min 11.10 feb 8
+7. **Made card to be navigational**  5min 11.30 feb 8
+8. **Virtualized grid of seats**  20min 12.20 feb 8
+9. **Add to cart feature** 30min 13.20 feb 8
+10. **Updated header** 15min 11.00 feb 9
+11. **Made star icon more clickable** 10min 11.20 feb 9
+12. **Cart implementation** 30min 12.20 feb 9
+---
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+🚀 This project is designed to provide a simple and efficient way to manage daily tasks. Contributions and feedback are welcome!
