@@ -14,6 +14,7 @@ const Card = styled(MuiCard)`
 	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 	transition: transform 0.2s ease-in-out;
 	position: relative;
+	cursor: pointer;
 	&:hover {
 		transform: translateY(-5px);
 	}
@@ -54,7 +55,8 @@ const FlightCard = memo(
 		const navigate = useNavigate();
 		const [favorited, setFavorited] = useState(false);
 
-		const toggleFavorite = () => {
+		const toggleFavorite = (event: React.MouseEvent) => {
+			event.stopPropagation();
 			setFavorited(prev => !prev);
 		};
 
