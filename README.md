@@ -26,4 +26,4 @@ This is a task management application built with React
 12. **Cart implementation** 30min 12.20 feb 9
 ---
 
-🚀 This project is designed to provide a simple and efficient way to manage daily tasks. Contributions and feedback are welcome!
+🚀 This project is designed to provide a simple and efficient way to buy flight tickets. Contributions and feedback are welcome!
