@@ -14,7 +14,7 @@ const CartCountContainer = styled.div`
 const CartNavLink = () => {
 	const { seats } = useAppSelector((state: RootState) => state.cart);
 	return (
-		<NavButton sx={{ display: 'flex', alignItems: 'center', gap: 0.2 }}>
+		<NavButton href='/cart' sx={{ display: 'flex', alignItems: 'center'}}>
 			<CartCountContainer>
 				<Box sx={{ position: 'relative', display: 'inline-block' }}>
 					{seats > 0 && (
