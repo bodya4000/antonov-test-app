@@ -47,8 +47,12 @@ export const cartSlice = createSlice({
 
 			state.chosenSeats = [];
 		},
+		removeItemById(state, action: PayloadAction<string>) {
+			state.cart = state.cart.filter(seat => seat.id != action.payload);
+			state.seats -= 1;
+		},
 	},
 });
 
-export const { chooseSeat, addChosenSeatsToCart, unChooseSeat, unChooseAll } = cartSlice.actions;
+export const { chooseSeat, addChosenSeatsToCart, unChooseSeat, unChooseAll, removeItemById } = cartSlice.actions;
 export default cartSlice.reducer;

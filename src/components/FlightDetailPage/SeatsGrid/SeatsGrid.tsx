@@ -1,32 +1,42 @@
 import { Box } from '@mui/material';
-import { useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { FC, useMemo } from 'react';
 import { Seat } from '../../../constants/Seat';
 import { chooseSeat } from '../../../redux/Cart';
 import { RootState, useAppDispatch, useAppSelector } from '../../../redux/store';
+import { IFlight } from '../../../types/IFlight';
 import { ISeat } from '../../../types/ISeat';
 import { generatePlaces } from '../../../utils/placeGrid';
 import { ColorBox, GridContainer, LegendBox, LegendItem, SeatBox } from './SeatsGridStyles';
 
-const SeatsGrid = () => {
-	const { id } = useParams();
-	const seats = useMemo(() => generatePlaces(id ?? ''), [id]);
-	const { chosenSeats } = useAppSelector((state: RootState) => state.cart);
+interface SeatsGridProps {
+	flight: IFlight | undefined;
+}
+
+const SeatsGrid: FC<SeatsGridProps> = ({ flight }) => {
+	const seats = useMemo(() => generatePlaces(flight), [flight]);
+	const { chosenSeats, cart } = useAppSelector((state: RootState) => state.cart);
 	const dispatch = useAppDispatch();
 	const handleSelectSeat = (seat: ISeat) => {
 		if (seat.status == Seat.free) dispatch(chooseSeat(seat));
 	};
 
 	const isSelected = (id: string) => {
-		return chosenSeats.map((flight: ISeat) => flight.id).includes(id);
+		const justChosen = chosenSeats.map((seat: ISeat) => seat.id).includes(id);
+		const inCart = cart.map(seat => seat.id).includes(id);
+		return justChosen || inCart;
 	};
+
+	const parseSeatId = (flightId: string) => {
+		return flightId.split('/').pop();
+	};
+
 
 	return (
 		<Box sx={{ display: 'flex' }}>
 			<GridContainer>
 				{seats.flat().map((seat: ISeat) => (
 					<SeatBox key={seat.id} status={seat.status} selected={isSelected(seat.id)} onClick={() => handleSelectSeat(seat)}>
-						{seat.id.split('/').pop()}
+						{parseSeatId(seat.id)}
 					</SeatBox>
 				))}
 			</GridContainer>

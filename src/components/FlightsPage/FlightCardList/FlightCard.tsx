@@ -1,10 +1,11 @@
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import { Box, CardContent, IconButton, Card as MuiCard, styled, Typography } from '@mui/material';
+import { CardContent, IconButton, Card as MuiCard, styled, Typography } from '@mui/material';
 import { memo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IFlight } from '../../../types/IFlight';
 import DateService from '../../../utils/date';
+import Badge from '../../common/Badge'
 
 const Card = styled(MuiCard)`
 	flex: 1 1 23%;
@@ -32,16 +33,6 @@ const FlightInfo = styled(Typography)`
 	font-size: 14px;
 	color: #555;
 	margin-bottom: 6px;
-`;
-
-const Badge = styled(Box)`
-	display: inline-block;
-	padding: 4px 8px;
-	border-radius: 8px;
-	background-color: gold;
-	color: black;
-	font-weight: bold;
-	font-size: 12px;
 `;
 
 const FavoriteButton = styled(IconButton)`

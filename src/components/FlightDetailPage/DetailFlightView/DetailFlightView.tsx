@@ -2,23 +2,22 @@
 import FlightLandIcon from '@mui/icons-material/FlightLand';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import { Typography } from '@mui/material';
-import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import useFlightById from '../../../hooks/useFlightById';
+import { FC, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { addChosenSeatsToCart, unChooseAll } from '../../../redux/Cart';
 import { RootState, useAppDispatch, useAppSelector } from '../../../redux/store';
+import { IFlight } from '../../../types/IFlight';
 import { ISeat } from '../../../types/ISeat';
-import DateService from '../../../utils/date';
+import { formatDate, formatDetail } from '../../../utils/loadUi';
 import AppButton from '../../common/AppButton';
 import { FlightContainer, FlightInfo, FlightTitle, IconWrapper, PriceTag } from './DetailFlightViewStyles';
 
-const formatDetail = (detail: string | number | undefined) => detail ?? '...loading';
-const formatDate = (date: string | undefined) => (date ? DateService.toUIFormat(new Date(date)) : '...loading');
+interface DetailFlightViewProps {
+	flight: IFlight | undefined;
+}
 
-const DetailFlightView = () => {
-	const { id } = useParams();
+const DetailFlightView: FC<DetailFlightViewProps> = ({ flight }) => {
 	const navigate = useNavigate();
-	const { data: flight } = useFlightById(id ?? '');
 	const { chosenSeats } = useAppSelector((state: RootState) => state.cart);
 	const dispatch = useAppDispatch();
 

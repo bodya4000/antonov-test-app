@@ -14,7 +14,6 @@ const useFlights = () => {
 	const valueMax = useSelector((state: RootState) => state.options.valueMax);
 	const departure = useSelector((state: RootState) => state.options.departure);
 	const arrival = useSelector((state: RootState) => state.options.arrival);
-	console.log('render');
 	const flightsQueryData = useQuery({
 		queryKey: ['flights'],
 		queryFn: () => FlightService.getFlights(),
