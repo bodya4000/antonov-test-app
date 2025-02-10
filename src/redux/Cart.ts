@@ -50,6 +50,8 @@ export const cartSlice = createSlice({
 		removeItemById(state, action: PayloadAction<string>) {
 			state.cart = state.cart.filter(seat => seat.id != action.payload);
 			state.seats -= 1;
+			const serializedState = JSON.stringify({ seats: state.seats, cart: state.cart });
+			localStorage.setItem('cartState', serializedState);
 		},
 	},
 });
