@@ -22,7 +22,7 @@ const StyledSlider = styled(Slider)`
 	top: 2px;
 	color: rgb(48, 52, 55);
 	height: 6px;
-	width: 300px;
+	width: 85%;
 	margin: 0 20px;
 	& .MuiSlider-thumb {
 		width: 20px;

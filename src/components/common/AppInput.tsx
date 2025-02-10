@@ -9,7 +9,6 @@ interface AppInputProps extends InputHTMLAttributes<HTMLInputElement> {
 const InputWrapper = styled.div`
 	position: relative;
 	width: 100%;
-	max-width: 400px;
 `;
 
 const StyledInput = styled.input`

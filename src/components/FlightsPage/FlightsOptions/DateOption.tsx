@@ -31,9 +31,9 @@ export default function DateOption() {
 
 	return (
 		<LocalizationProvider dateAdapter={AdapterDayjs}>
-			<div style={{ height: 48, display: 'flex', justifyContent: 'space-around', gap: '16px', width: '100%' }}>
-				<DatePicker minDate={dayjs()} label='Departure' value={departureTransformed} onChange={handleDepartureChange} />
-				<DatePicker minDate={departureTransformed} label='Arrival' value={arrivalTransformed} onChange={handleArrivalChange} />
+			<div style={{ height: 48, display: 'flex', justifyContent: 'flex-start', gap: '16px', width: '100%' }}>
+				<DatePicker sx={{ flex: 1 }} minDate={dayjs()} label='Departure' value={departureTransformed} onChange={handleDepartureChange} />
+				<DatePicker sx={{ flex: 1 }} minDate={departureTransformed} label='Arrival' value={arrivalTransformed} onChange={handleArrivalChange} />
 			</div>
 		</LocalizationProvider>
 	);

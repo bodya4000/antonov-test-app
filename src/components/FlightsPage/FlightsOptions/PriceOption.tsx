@@ -5,7 +5,7 @@ import { useAppDispatch } from '../../../redux/store';
 import AppSlider from '../../common/AppSlider';
 
 const PriceOption = () => {
-	const [localValue, setLocalValue] = useState([250, 300]);
+	const [localValue, setLocalValue] = useState([100, 300]);
 	const dispatch = useAppDispatch();
 
 	const debouncedDispatch = useMemo(
@@ -27,7 +27,7 @@ const PriceOption = () => {
 	};
 
 	return (
-		<Box sx={{ width: '100%', maxWidth: 400, textAlign: 'center' }}>
+		<Box sx={{ width: "100%", textAlign: 'center', }}>
 			<Typography variant='h6' sx={{ marginBottom: '10px', fontWeight: 'bold', color: '#333' }}>
 				Price Range
 			</Typography>

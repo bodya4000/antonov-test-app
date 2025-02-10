@@ -7,8 +7,16 @@ const PageWrapper = styled.main`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
-	flex-direction:column;
+	flex-direction: column;
 	justify-content: center;
+
+	@media (max-width: 787px) {
+		padding: 20px;
+	}
+
+	@media (max-width: 480px) {
+		padding: 5px;
+	}
 `;
 
 export default PageWrapper;
