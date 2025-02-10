@@ -298,7 +298,6 @@ Please change the parent <Route path="${E}"> to <Route path="${E==="/"?"*":`${E}
 	}
 `,cj=ie(Pn)`
 	display: flex;
-	justify-content: center;
 	gap: 10px;
 	min-width: 300px;
 	padding: 20px;
