@@ -4,7 +4,6 @@ export const FlightContainer = styled(Box)`
 	margin: 0;
 	display: block;
 	flex-direction: column;
-	max-width: 800px;
 	padding: 20px;
 	border: 2px solid black;
 	border-radius: 12px;

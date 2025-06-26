@@ -5,11 +5,10 @@ import { memo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IFlight } from '../../../types/IFlight';
 import DateService from '../../../utils/date';
-import Badge from '../../common/Badge'
+import Badge from '../../common/Badge';
 
 const Card = styled(MuiCard)`
-	flex: 1 1 23%;
-	width: 350px;
+	flex: 0 1 calc(25% - 20px);
 	border-radius: 16px;
 	overflow: hidden;
 	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
@@ -18,6 +17,17 @@ const Card = styled(MuiCard)`
 	cursor: pointer;
 	&:hover {
 		transform: translateY(-5px);
+	}
+	@media (max-width: 1100px) {
+		flex: 1 1 calc(33.333% - 20px);
+	}
+
+	@media (max-width: 787px) {
+		flex: 1 1 calc(50% - 20px);
+	}
+
+	@media (max-width: 480px) {
+		flex: 1 1 90%;
 	}
 `;
 
