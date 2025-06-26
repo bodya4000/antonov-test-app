@@ -17,7 +17,10 @@ const SeatsGrid: FC<SeatsGridProps> = ({ flight }) => {
 	const { chosenSeats, cart } = useAppSelector((state: RootState) => state.cart);
 	const dispatch = useAppDispatch();
 	const handleSelectSeat = (seat: ISeat) => {
-		if (seat.status == Seat.free) dispatch(chooseSeat(seat));
+		if (seat.status == Seat.free) {
+			seat.status = Seat.grabbed;
+			dispatch(chooseSeat(seat));
+		}
 	};
 
 	const isSelected = (id: string) => {
@@ -30,17 +33,8 @@ const SeatsGrid: FC<SeatsGridProps> = ({ flight }) => {
 		return flightId.split('/').pop();
 	};
 
-
 	return (
-		<Box sx={{ display: 'flex' }}>
-			<GridContainer>
-				{seats.flat().map((seat: ISeat) => (
-					<SeatBox key={seat.id} status={seat.status} selected={isSelected(seat.id)} onClick={() => handleSelectSeat(seat)}>
-						{parseSeatId(seat.id)}
-					</SeatBox>
-				))}
-			</GridContainer>
-
+		<Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
 			<LegendBox>
 				<LegendItem color='black'>
 					<ColorBox color='black' />
@@ -55,6 +49,13 @@ const SeatsGrid: FC<SeatsGridProps> = ({ flight }) => {
 					<span>Chosen</span>
 				</LegendItem>
 			</LegendBox>
+			<GridContainer>
+				{seats.flat().map((seat: ISeat) => (
+					<SeatBox key={seat.id} status={seat.status} selected={isSelected(seat.id)} onClick={() => handleSelectSeat(seat)}>
+						{parseSeatId(seat.id)}
+					</SeatBox>
+				))}
+			</GridContainer>
 		</Box>
 	);
 };

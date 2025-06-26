@@ -1,25 +1,29 @@
-import styled from '@emotion/styled';
+import { Box } from '@mui/material';
 import { FC } from 'react';
+import useFlights from '../../../hooks/useFlights';
 import FlightCard from './FlightCard';
-import useFlights from '../../../hooks/useFlights'
-
-const FlightListContainer = styled.div`
-	max-width: 1300px;
-	margin: 0 auto;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-`;
 
 const FlightList: FC = () => {
 	const { data: flights } = useFlights();
-
 	return (
-		<FlightListContainer>
+		<Box
+			sx={{
+				maxWidth: '1300px',
+				margin: '0 auto',
+				display: 'flex',
+				flexWrap: 'wrap',
+				gap: {
+					xs: '2px',
+					sm: '5px',
+					md: '10px',
+					lg: '20px',
+				},
+			}}
+		>
 			{flights?.map(flight => (
 				<FlightCard key={flight.id} {...flight} />
 			))}
-		</FlightListContainer>
+		</Box>
 	);
 };
 

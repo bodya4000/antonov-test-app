@@ -1,8 +1,8 @@
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 import PageWrapper from '../components/common/PageWrapper';
 import DetailFlightView from '../components/FlightDetailPage/DetailFlightView/DetailFlightView';
 import SeatsGrid from '../components/FlightDetailPage/SeatsGrid/SeatsGrid';
-import useFlightById from '../hooks/useFlightById'
+import useFlightById from '../hooks/useFlightById';
 
 const FlightDetailPage = () => {
 	const { id } = useParams();
@@ -10,8 +10,8 @@ const FlightDetailPage = () => {
 
 	return (
 		<PageWrapper>
-			<SeatsGrid flight={flight}/>
-			<DetailFlightView flight={flight}/>
+			<DetailFlightView flight={flight} />
+			<SeatsGrid flight={flight} />
 		</PageWrapper>
 	);
 };

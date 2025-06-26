@@ -7,9 +7,16 @@ export const GridContainer = styled(Box)`
 	grid-gap: 10px;
 	padding: 20px;
 	border: 2px solid #000;
-	max-width: 800px;
 	flex: 1 1 auto;
 	border-radius: 12px;
+
+	@media (max-width: 560px) {
+		grid-template-columns: repeat(8, 1fr);
+	}
+
+		@media (max-width: 480px) {
+		grid-template-columns: repeat(6, 1fr);
+	}
 `;
 
 export const SeatBox = styled(Box)<{ status: Seat; selected: boolean }>`
@@ -32,7 +39,6 @@ export const SeatBox = styled(Box)<{ status: Seat; selected: boolean }>`
 
 export const LegendBox = styled(Box)`
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	gap: 10px;
 	min-width: 300px;
