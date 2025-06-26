@@ -15,7 +15,7 @@ const CartNavLink = () => {
 	const { seats } = useAppSelector((state: RootState) => state.cart);
 	const currentPath = window.location.pathname;
 	return (
-		<NavButton disabled={currentPath == '/cart' || seats == 0} href='/antonov-test-app/cart' sx={{ display: 'flex', alignItems: 'center' }}>
+		<NavButton disabled={currentPath == '/cart' || seats == 0} href='/cart' sx={{ display: 'flex', alignItems: 'center' }}>
 			<CartCountContainer>
 				<Box sx={{ position: 'relative', display: 'inline-block' }}>
 					{seats > 0 && (

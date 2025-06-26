@@ -7,7 +7,7 @@ import FlightsPage from './app/FlightsPage';
 const Navigation: FC = () => {
 	return (
 		<>
-			<BrowserRouter basename='/antonov-test-app/'>
+			<BrowserRouter>
 				<Routes>
 					<Route path='/' element={<FlightsPage />} />
 					<Route path='flight/:id' element={<FlightDetailPage />}></Route>
